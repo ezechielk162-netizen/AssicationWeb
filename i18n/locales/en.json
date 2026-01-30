@@ -1,7 +1,12 @@
 {
   "nav": {
     "home": "Home",
-    "seemore": "About us"
+    "association": "Association",
+    "role": "Role & missions",
+    "defis": "Challenges",
+    "squad": "Team Members",
+    "project": "Projects and events",
+    "contact": "Contact"
   },
   "footer": {
     "links": "Quick links",

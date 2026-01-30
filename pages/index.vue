@@ -2,9 +2,10 @@
   <HeroImageSection :image_url="randomImage.URL" />
 
   <PersoDiv >
-  <div class="d-flex align-items-center justify-content-center gap-5">
+  <div id="test" class="d-flex align-items-center justify-content-center gap-5">
   <div>
-    <p class="fs-2"><strong>Qui sommes-nous ?</strong></p>
+    <p class="fs-2"><strong>Qui sommes-nous ?   {{loading}}
+    </strong></p>
   </div>
 
   <div>
@@ -20,4 +21,5 @@
 
 <script lan="ts" setup>
 import { randomImage } from "~/core/constant";
+
 </script>

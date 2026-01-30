@@ -86,7 +86,7 @@
                     class="nav-link mx-5 gap-3 fs-5 d-flex align-items-center gap-1"
                     :to="sub.to"
                   >
-                    <component v-if="sub.icon" :is="sub.icon" class="fix-icon" />
+                    <component v-if="sub.icon" :is="sub.icon" class="fix-ico" />
                     {{ t(sub.name) }}
                   </NuxtLink>
                 </li>

@@ -4,7 +4,7 @@ import FormService from "~/services/forms.service";
 const isOpen = ref(false)
 export const useFunctions = () => {
     const form = FormService.activeForm;
-    const resetForm = FormService.clearForm;
+    const resetForms = FormService.clearForm;
 
     const languageStore = useLanguageStore();
     const choiceLanguage = computed(() => languageStore.language);

@@ -4,7 +4,7 @@
   <PersoDiv >
   <div id="test" class="d-flex align-items-center justify-content-center gap-5">
   <div>
-    <p class="fs-2"><strong>Qui sommes-nous ?   {{loading}}
+    <p class="fs-2"><strong>Qui sommes-nous ? 
     </strong></p>
   </div>
 

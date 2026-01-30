@@ -1,7 +1,12 @@
 {
   "nav": {
     "home": "Accueil",
-    "seemore": "À propos"
+    "association": "L'Association",
+    "role": "Rôle & missions",
+    "defis": "Défis",
+    "squad": "Équipe",
+    "project": "Projets & événements",
+    "contact": "Contact"
   },
   "footer": {
     "legal": "Legal"
@@ -10,6 +15,14 @@
     "activate_ticket": "Activer un ticket"
   },
   "body": {
-    
+    "organization_name": "ss",
+    "solution": "xd",
+    "links": "az",
+    "first": "asa",
+    "advantage": "hdj",
+    "how_choice": "jnsq",
+    "first_step": "ncnw",
+    "avis": "xs",
+    "sign": "ds"
   }
 }

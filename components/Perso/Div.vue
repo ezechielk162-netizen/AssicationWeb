@@ -1,5 +1,5 @@
 <template>
-    <div :class="`m-${props.marginValue ?? 4}`">
+    <div :class="`m-${props.marginValue ?? 4} pt-${props.paddingValue ?? 0}`">
     <slot/>
     </div>
 </template>
@@ -8,6 +8,9 @@
 
 const props = defineProps({
     marginValue:{
+        type: Number
+    },
+    paddingValue:{
         type: Number
     }
 })

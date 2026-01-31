@@ -15,5 +15,43 @@
   "form": {
     "activate_ticket": "Activate a ticket"
   },
-  "body": {}
+  "body": {
+    "organization_name": "ss",
+    "solution": "xd",
+    "links": "az",
+    "first": "asa",
+    "advantage": "hdj",
+    "how_choice": "jnsq",
+    "first_step": "ncnw",
+    "avis": "xs",
+    "sign": "ds",
+    "presentation": {
+      "button": "Who are we ?",
+      "title": "Your student association",
+      "subtitle": "We are the voice of the students of the University of Hearst, present on three separate campuses to support you throughout your university journey.",
+      "card": {
+        "title-one": "Who We Are",
+        "one": "A dynamic student organization that represents and defends the interests of all students across our three campuses, creating a strong and supportive community.",
+        "title-second": "Our Role",
+        "second": "To be the bridge between students and university administration, to organize enriching events, and to ensure that every student voice is heard and respected.",
+        "title-three": "Our Impact",
+        "three": "To tangibly improve student life through targeted initiatives, accessible support services, and a vibrant community that fosters the personal growth of each individual."
+      }
+    },
+    "goal": {
+      "button": "Our mission",
+      "title": "What we do for you",
+      "subtitle": "Concrete actions every day to improve your university experience.",
+      "card": {
+        "title-one": "Student Representation",
+        "one": "We are your voice to the administration, defending your interests and concerns in all university decision-making bodies.",
+        "title-second": "Academic Support",
+        "second": "Tutoring programs, methodology workshops, exam assistance, and resources to help you succeed in your studies under the best possible conditions.",
+        "title-three": "Events & Activities",
+        "three": "Organizing social, cultural, and sporting events to enrich your university life and create unforgettable memories.",
+        "title-four": "Defending Your Rights",
+        "four": "Protecting your student rights, assisting with administrative procedures, and providing support in case of difficulties."
+      }
+    }
+  }
 }

@@ -23,6 +23,49 @@
     "how_choice": "jnsq",
     "first_step": "ncnw",
     "avis": "xs",
-    "sign": "ds"
+    "sign": "ds",
+    "presentation": {
+      "button": "Qui sommes-nous ?",
+      "title": "Votre association étudiante",
+      "subtitle": "Nous sommes la voix des étudiants de l'Université de Hearst, présents sur trois campus distincts pour vous accompagner tout au long de votre parcours universitaire.",
+      "card": {
+        "title-one": "Qui nous sommes",
+        "one": "Une organisation étudiante dynamique qui représente et défend les intérêts de tous les étudiants à travers nos trois campus, créant une communauté forte et solidaire.",
+        "title-second": "Notre rôle",
+        "second": "Être le pont entre les étudiants et l'administration universitaire, organiser des événements enrichissants et assurer que chaque voix étudiante soit entendue et respectée.",
+        "title-three": "Notre impact",
+        "three": "Améliorer concrètement la vie étudiante par des initiatives ciblées, des services de soutien accessibles et une communauté vibrante qui favorise l'épanouissement de chacun."
+      }
+    },
+    "goal": {
+      "button": "Notre mission",
+      "title": "Ce que nous faisons pour vous",
+      "subtitle": "Des actions concrètes au quotidien pour améliorer votre expérience universitaire.",
+      "card": {
+        "title-one": "Représentation étudiante",
+        "one": "Nous sommes votre voix auprès de l'administration, défendant vos intérêts et vos préoccupations dans toutes les instances décisionnelles de l'université.",
+        "title-second": "Soutien académique",
+        "second": "Programmes de tutorat, ateliers de méthodologie, aide aux examens et ressources pour réussir vos études dans les meilleures conditions.",
+        "title-three": "Événements & activités",
+        "three": "Organisation d'événements sociaux, culturels et sportifs pour enrichir votre vie universitaire et créer des souvenirs inoubliables.",
+        "title-four": "Défense des droits",
+        "four": "Protection de vos droits étudiants, accompagnement dans les démarches administratives et soutien en cas de difficultés."
+      }
+    },
+    "members": {
+      "button": "Notre équipe",
+      "title": "Ce que nous faisons pour vous",
+      "subtitle": "Des actions concrètes au quotidien pour améliorer votre expérience universitaire.",
+      "card": {
+        "title-one": "Représentation étudiante",
+        "one": "Nous sommes votre voix auprès de l'administration, défendant vos intérêts et vos préoccupations dans toutes les instances décisionnelles de l'université.",
+        "title-second": "Soutien académique",
+        "second": "Programmes de tutorat, ateliers de méthodologie, aide aux examens et ressources pour réussir vos études dans les meilleures conditions.",
+        "title-three": "Événements & activités",
+        "three": "Organisation d'événements sociaux, culturels et sportifs pour enrichir votre vie universitaire et créer des souvenirs inoubliables.",
+        "title-four": "Défense des droits",
+        "four": "Protection de vos droits étudiants, accompagnement dans les démarches administratives et soutien en cas de difficultés."
+      }
+    }
   }
 }

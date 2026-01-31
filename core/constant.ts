@@ -151,3 +151,10 @@ export const cardSecond = [
     icon: SafetyOutlined
   },
 ];
+
+export const filters = [
+  "body.filters.all",
+  "body.filters.kapuskasing",
+  "body.filters.hearst",
+  "body.filters.timmins"
+];

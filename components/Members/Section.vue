@@ -8,9 +8,9 @@
         :type="activeFilter === filter ? 'primary' : 'default'"
         shape="round"
         size="large"
-        @click="activeFilter = filter"
+        @click="activeFilter = t(filter)"
       >
-        {{ filter }}
+        {{ t(filter) }}
       </a-button>
     </div>
 
@@ -24,20 +24,20 @@
         <a-card class="member-card">
           <!-- HEADER -->
           <div class="card-header">
-            <a-tag class="campus-tag">
-              <span class="tag-dot" :class="member.color"></span>
-              {{ member.campus }}
-            </a-tag>
-
             <div class="w-100">
               <img :src="member.photo" alt="photo membre" />
-              <span class="status-dot"></span>
             </div>
           </div>
 
           <!-- BODY -->
-          <h4 class="mt-4 mb-1">{{ member.name }}</h4>
+          <h4 class="mt-4 mb-1 team-name">{{ member.name }}</h4>
           <p class="role">{{ member.role }}</p>
+          <div class="pb-2">
+            <a-tag class="campus-tag" :style="{ backgroundColor: member.background }">
+              <span class="tag-dot"></span>
+              {{ member.campus }}
+            </a-tag>
+          </div>
           <p class="description">{{ member.description }}</p>
 
           <!-- SOCIALS -->
@@ -67,7 +67,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { filters } from "~/core/constant";
+const { t } = useI18n();
+
 import {
   LinkedinOutlined,
   MailOutlined,
@@ -75,6 +77,17 @@ import {
   TwitterOutlined,
   GithubOutlined,
 } from "@ant-design/icons-vue";
+
+/* FILTRE */
+const activeFilter = ref("Tous les membres");
+
+/* FILTRAGE */
+const filteredMembers = computed(() => {
+  if (activeFilter.value === "Tous les membres") {
+    return members.value;
+  }
+  return members.value.filter((m) => m.campus === activeFilter.value);
+});
 
 /* ICONS */
 const getIcon = (name) => {
@@ -88,25 +101,15 @@ const getIcon = (name) => {
   return icons[name];
 };
 
-/* FILTRES */
-const filters = [
-  "Tous les membres",
-  "Direction",
-  "Campus Bleu",
-  "Campus Vert",
-  "Campus Jaune",
-];
-
-const activeFilter = ref("Tous les membres");
-
 /* MEMBRES */
 const members = ref([
   {
     id: 1,
-    name: "Sophie Dumont",
-    role: "Présidente de l'Association",
-    campus: "Direction",
-    color: "blue",
+    name: "Hans Edoh Daye",
+    role: "Président de l'Association",
+    campus: "Campus de Hearst",
+    color: "white",
+    background: "#10b981",
     photo: "https://i.pravatar.cc/246?img=47",
     initials: "SD",
     description:
@@ -120,10 +123,10 @@ const members = ref([
   {
     id: 2,
     name: "Marc Leblanc",
-    role: "Vice-président aux affaires externes",
-    campus: "Campus Vert",
+    role: "Vice-président",
+    campus: "Campus de Kapuskasing",
     photo: "https://i.pravatar.cc/246?img=49",
-    color: "green",
+    color: "blue",
     initials: "ML",
     description: "Responsable des partenariats et des collaborations stratégiques.",
     socials: ["linkedin", "mail"],
@@ -135,8 +138,8 @@ const members = ref([
   {
     id: 3,
     name: "Camille Roy",
-    role: "Secrétaire générale",
-    campus: "Campus Jaune",
+    role: "Secrétaire Générale",
+    campus: "Campus de Timmins",
     photo: "https://i.pravatar.cc/246?img=55",
     color: "gold",
     initials: "CR",
@@ -150,8 +153,8 @@ const members = ref([
   {
     id: 4,
     name: "Alexandre Tremblay",
-    role: "Représentant Campus Bleu",
-    campus: "Campus Bleu",
+    role: "Trésorier",
+    campus: "Campus de Kapuskasing",
     color: "blue",
     initials: "AT",
     description: "Étudiant en informatique, il organise des événements technologiques.",
@@ -161,15 +164,21 @@ const members = ref([
       { value: "15+", label: "ÉVÉNEMENTS" },
     ],
   },
+  {
+    id: 5,
+    name: "Alexandre Tremblay",
+    role: "Responsable général des communications ",
+    campus: "Campus de Hearst",
+    color: "green",
+    initials: "AT",
+    description: "Étudiant en informatique, il organise des événements technologiques.",
+    socials: ["github", "mail"],
+    stats: [
+      { value: "1", label: "ANNÉE" },
+      { value: "15+", label: "ÉVÉNEMENTS" },
+    ],
+  },
 ]);
-
-/* FILTRAGE */
-const filteredMembers = computed(() => {
-  if (activeFilter.value === "Tous les membres") {
-    return members.value;
-  }
-  return members.value.filter((m) => m.campus === activeFilter.value);
-});
 </script>
 
 <style scoped>
@@ -182,7 +191,7 @@ const filteredMembers = computed(() => {
 }
 
 /* Barre bleue en haut */
-.info-card::before {
+.member-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -193,21 +202,25 @@ const filteredMembers = computed(() => {
   transition: width 0.4s ease;
 }
 
+.member-card:hover::before {
+  width: 100%;
+}
+
 .member-card:hover {
- box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.08);
 }
 .member-card-kap:hover {
- /* ⬅️ comme demandé */
- box-shadow: 0 20px 50px rgba(37, 99, 235, 0.25);
+  /* ⬅️ comme demandé */
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.25);
 }
 
 .member-card-hearst:hover {
- /* ⬅️ comme demandé */
+  /* ⬅️ comme demandé */
   box-shadow: 0 20px 50px rgba(92, 221, 146, 0.25);
 }
 
 .member-card-timmins:hover {
- /* ⬅️ comme demandé */
+  /* ⬅️ comme demandé */
   box-shadow: 0 20px 50px rgba(92, 221, 146, 0.25);
 }
 
@@ -226,13 +239,18 @@ const filteredMembers = computed(() => {
 
 /* CAMPUS TAG */
 .campus-tag {
-  position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 1rem;
+  right: 1rem;
   z-index: 3; /* 🔥 IMPORTANT */
   border-radius: 20px;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-display) !important;
   padding: 4px 14px;
-  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
   font-weight: 600;
 }
 
@@ -241,28 +259,21 @@ const filteredMembers = computed(() => {
   display: inline-block;
   width: 8px;
   height: 8px;
+  background: white;
   border-radius: 50%;
   margin-right: 8px;
 }
 
 /* couleurs selon member.color */
-.tag-dot.blue {
-  background: #2563eb;
-}
-
-.tag-dot.green {
-  background: #22c55e;
-}
-
-.tag-dot.gold {
-  background: #f59e0b;
-}
-
 
 /* BODY */
 .role {
-  color: #2563eb;
+  color: var(--campus-green) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem;
   font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .description {
@@ -287,7 +298,6 @@ const filteredMembers = computed(() => {
   color: #2563eb;
   transition: all 0.3s ease;
 }
-
 
 /* STATS */
 .stats-divider {
@@ -316,6 +326,14 @@ const filteredMembers = computed(() => {
   color: #6b7280;
 }
 
+.team-name {
+  font-family: var(--font-display) !important;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
 /* HEADER */
 .card-header {
   height: 300px; /* ⬅️ plus grand */
@@ -340,15 +358,41 @@ const filteredMembers = computed(() => {
   display: block;
 }
 
-/* PETITE BOULE */
-.status-dot {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 12px;
-  height: 12px;
-  background: #22c55e;
-  border-radius: 50%;
-  border: 2px solid white;
+
+@media (max-width: 768px) {
+
+    .member-card {
+  border-radius: 24px;
+  overflow: hidden;
+  border-color: #d0d5dc;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  height: 100%;
 }
+
+.campus-tag {
+  top: 1rem;
+  right: 1rem;
+  z-index: 3; /* 🔥 IMPORTANT */
+  border-radius: 20px;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-display) !important;
+  padding: 4px 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+}
+
+.role {
+  color: var(--campus-green) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+    }
 </style>

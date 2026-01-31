@@ -66,6 +66,12 @@
         "title-four": "Défense des droits",
         "four": "Protection de vos droits étudiants, accompagnement dans les démarches administratives et soutien en cas de difficultés."
       }
+    },
+    "filters": {
+      "all": "Tous les membres",
+      "kapuskasing": "Campus de Kapuskasing",
+      "hearst": "Campus de Hearst",
+      "timmins": "Campus de Timmins"
     }
   }
 }

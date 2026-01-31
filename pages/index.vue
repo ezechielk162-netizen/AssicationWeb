@@ -32,7 +32,7 @@
       title="body.goal.title"
       subtitle="body.goal.subtitle"
     />
-    <SecondSectionCard />
+    <MembersSection />
   </PersoDiv>
 </template>
 

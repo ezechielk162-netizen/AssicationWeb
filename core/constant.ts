@@ -158,3 +158,93 @@ export const filters = [
   "body.filters.hearst",
   "body.filters.timmins"
 ];
+
+export const campusValue = {
+  KAPUSKASING: "Kapuskasing",
+  HEARST: "Hearst",
+  TIMMINS: "Timmins"
+}
+
+export const members = ref([
+  {
+    id: 1,
+    name: "Marc Zukenberg",
+    role: "Président de l'Association",
+    campus: "Campus de Hearst",
+    color: "white",
+    background: "#10b981",
+    photo: "https://i.pravatar.cc/246?img=68",
+    initials: "SD",
+    description:
+      "Étudiante en administration, Sophie est passionnée par l'engagement étudiant.",
+    socials: ["linkedin", "mail", "instagram"],
+    stats: [
+      { value: "1 année", label: "En poste depuis :" },
+      { value: "3ᵉ année", label: "Niveau scolaire :" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Marc Leblanc",
+    role: "Vice-président",
+    campus: "Campus de Kapuskasing",
+    photo: "https://i.pravatar.cc/246?img=33",
+    color: "blue",
+    background: "#2563eb",
+    initials: "ML",
+    description: "Responsable des partenariats et des collaborations stratégiques.",
+    socials: ["linkedin", "mail", "instagram"],
+    stats: [
+      { value: "1 année", label: "En poste depuis :" },
+      { value: "3ᵉ année", label: "Niveau scolaire :" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Camille Roy",
+    role: "Secrétaire Générale",
+    campus: "Campus de Timmins",
+    photo: "https://i.pravatar.cc/246?img=55",
+    color: "gold",
+    background: "#f59e0b",
+    initials: "CR",
+    description: "Organisée et méticuleuse, elle coordonne les activités.",
+    socials: ["linkedin", "mail", "instagram"],
+    stats: [
+      { value: "1 année", label: "En poste depuis :" },
+      { value: "3ᵉ année", label: "Niveau scolaire :" },
+    ],
+  },
+  {
+    id: 4,
+    name: "Alexandre Tremblay",
+    role: "Trésorier",
+    campus: "Campus de Kapuskasing",
+    color: "blue",
+    background: "#2563eb",
+    photo: "https://i.pravatar.cc/246?img=56",
+    initials: "AT",
+    description: "Étudiant en informatique, il organise des événements technologiques.",
+    socials: ["linkedin", "mail", "instagram"],
+    stats: [
+      { value: "1 année", label: "En poste depuis :" },
+      { value: "3ᵉ année", label: "Niveau scolaire :" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Alexandre Tremblay",
+    role: "Responsable général des communications ",
+    photo: "https://i.pravatar.cc/246?img=23",
+    campus: "Campus de Hearst",
+    color: "green",
+    background: "#10b981",
+    initials: "AT",
+    description: "Étudiant en informatique, il organise des événements technologiques.",
+    socials: ["linkedin", "mail", "instagram"],
+    stats: [
+      { value: "1 année", label: "En poste depuis :" },
+      { value: "3ᵉ année", label: "Niveau scolaire :" },
+    ],
+  },
+]);

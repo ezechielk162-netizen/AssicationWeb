@@ -34,6 +34,17 @@
     />
     <MembersSection />
   </PersoDiv>
+
+  <!-- Section des projets -->
+  <PersoDiv :padding-value="4">
+    <PresentationSection button-title="body.members.button" />
+    <PresentationCard
+      class="pt-2"
+      title="body.goal.title"
+      subtitle="body.goal.subtitle"
+    />
+    <ProjectsArticle />
+  </PersoDiv>
 </template>
 
 <script lan="ts" setup></script>

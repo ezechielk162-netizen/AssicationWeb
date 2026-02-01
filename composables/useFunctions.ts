@@ -9,6 +9,9 @@ export const useFunctions = () => {
     const languageStore = useLanguageStore();
     const choiceLanguage = computed(() => languageStore.language);
 
+    const router = useRouter();
+
+
 
     function changeLanguage(lang: any) {
         languageStore.setLanguage(lang);
@@ -28,9 +31,13 @@ export const useFunctions = () => {
         }
     }
 
+    function goToDetails(id: number){
+        router.push(`/projects/${id}`);
+    }
 
     return {
         isOpen,
+        goToDetails,
         toggleMenu,
         closeMenu,
         handleResize,

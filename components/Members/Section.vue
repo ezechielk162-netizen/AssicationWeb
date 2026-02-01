@@ -522,13 +522,58 @@ onBeforeUnmount(() => {
   }
 
   .member-card-kap .member-card-hearst .member-card-timmins {
-    border-radius: 24px;
-    overflow: hidden;
-    border-color: #d0d5dc;
-    transition: all 0.35s ease;
-    cursor: pointer;
-    height: 100%;
+    position: relative; /* OBLIGATOIRE pour ::before */
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  height: 100%;
   }
+
+/* Barre bleue en haut */
+.member-card-kap::before {
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%; /* visible par défaut */
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  z-index: 2;
+}
+.member-card-kap:focus {
+  box-shadow: 0 10px 10px rgba(37, 99, 235, 0.25) !important;
+}
+
+.member-card-hearst:focus {
+  box-shadow: 0 10px 10px rgba(92, 221, 146, 0.25) !important;
+}
+
+.member-card-timmins:hover {
+  box-shadow: 0 10px 10px rgba(221, 204, 92, 0.25) !important;
+}
+
+.member-card-hearst::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  z-index: 2;
+}
+
+.member-card-timmins::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  z-index: 2;
+}
 
   .campus-tag {
     top: 1rem;

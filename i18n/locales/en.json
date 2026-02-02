@@ -52,6 +52,66 @@
         "title-four": "Defending Your Rights",
         "four": "Protecting your student rights, assisting with administrative procedures, and providing support in case of difficulties."
       }
+    },
+    "members": {
+      "button": "Our Team",
+      "title": "Meet the members of the association",
+      "subtitle": "A passionate and dedicated team working every day to improve your student experience.",
+      "card": {
+        "title-one": "Student Representation",
+        "one": "We are your voice to the administration, defending your interests and concerns in all university decision-making bodies.",
+        "title-second": "Academic Support",
+        "second": "Tutoring programs, methodology workshops, exam help, and resources to help you succeed in your studies under the best possible conditions.",
+        "title-three": "Events & Activities",
+        "three": "Organizing social, cultural, and sporting events to enrich your university life and create unforgettable memories.",
+        "title-four": "Advocacy",
+        "four": "Protecting your student rights, assisting with administrative procedures, and providing support in case of difficulties.",
+        "member_add": "Join our team",
+        "old_members_view": "Former members",
+        "position": {
+          "president": {
+            "poste": "President of the Association",
+            "description": "A business administration student, Sophie is passionate about student engagement.",
+            "position_during": "Holds in:",
+            "school_years": "Educational level:"
+          },
+          "vice_president": {
+            "poste": "Vice-President",
+            "description": "Responsible for strategic partnerships and collaborations.",
+            "position_during": "Holds in:",
+            "school_years": "Educational level:"
+          },
+          "secretaire": {
+            "poste": "General Secretary",
+            "description": "Organized and meticulous, she coordinates activities.",
+            "position_during": "Holds in:",
+            "school_years": "Educational level:"
+          },
+          "tresorerie": {
+            "poste": "Treasurer",
+            "description": "A computer science student, he organizes technology events.",
+            "position_during": "Posted since:",
+            "school_years": "Education level:"
+          },
+          "communication": {
+            "poste": "General Communications Manager",
+            "description": "A computer science student, he organizes technology events.",
+            "position_during": "Posted since:",
+            "school_years": "Education level:"
+          }
+        }
+      }
+    },
+    "filters": {
+      "all": "All members",
+      "kapuskasing": "Kapuskasing Campus",
+      "hearst": "Hearst Campus",
+      "timmins": "Timmins Campus"
+    },
+    "detail_formers": {
+      "title": "Former Committee Members",
+      "subtitle": "Discover the student leaders who have shaped our association over the past 5 years",
+      "comite": "Committee"
     }
   }
 }

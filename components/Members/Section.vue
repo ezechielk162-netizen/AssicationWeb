@@ -38,9 +38,9 @@
       >
         <a-card
           :class="
-            member.campus.includes(campusValue?.HEARST)
+            t(member.campus).includes(campusValue?.HEARST)
               ? 'member-card-hearst'
-              : member.campus.includes(campusValue?.KAPUSKASING)
+              : t(member.campus).includes(campusValue?.KAPUSKASING)
               ? 'member-card-kap'
               : 'member-card-timmins'
           "
@@ -57,22 +57,22 @@
           <p
             class="role"
             :style="{
-              color: member.campus.includes(campusValue?.HEARST)
+              color: t(member.campus).includes(campusValue?.HEARST)
                 ? 'var(--campus-green)'
-                : member.campus.includes(campusValue?.KAPUSKASING)
+                : t(member.campus).includes(campusValue?.KAPUSKASING)
                 ? 'var(--campus-blue)'
                 : 'var(--campus-yellow)',
             }"
           >
-            {{ member.role }}
+            {{ t(member.role) }}
           </p>
           <div class="pb-2">
             <a-tag class="campus-tag" :style="{ backgroundColor: member.background }">
               <EnvironmentOutlined class="fix-icon tag-dot" />
-              {{ member.campus }}
+              {{ t(member.campus) }}
             </a-tag>
           </div>
-          <p class="description">{{ member.description }}</p>
+          <p class="description">{{ t(member.description) }}</p>
 
           <!-- SOCIALS -->
           <div class="socials d-flex gap-3 mt-4">
@@ -80,9 +80,9 @@
               v-for="social in member.socials"
               :key="social"
               :class="
-                member.campus.includes(campusValue?.HEARST)
+                t(member.campus).includes(campusValue?.HEARST)
                   ? 'social-icon-hearst'
-                  : member.campus.includes(campusValue?.KAPUSKASING)
+                  : t(member.campus).includes(campusValue?.KAPUSKASING)
                   ? 'social-icon'
                   : 'social-icon-timmins'
               "
@@ -92,16 +92,15 @@
           </div>
 
           <!-- STATS -->
-          <div class="stats-divider"></div>
 
           <div
             v-for="(stat, index) in member.stats"
             :key="index"
             class="flex-fill stats d-flex justify-content-around text-center"
             :style="{
-              border: member.campus.includes(campusValue?.HEARST)
+              border: t(member.campus).includes(campusValue?.HEARST)
                 ? '2px solid var(--campus-green)'
-                : member.campus.includes(campusValue?.KAPUSKASING)
+                : t(member.campus).includes(campusValue?.KAPUSKASING)
                 ? '2px solid var(--campus-blue)'
                 : '2px solid var(--campus-yellow)',
             }"
@@ -109,21 +108,21 @@
             <div
               class="stat-label"
               :style="{
-                color: member.campus.includes(campusValue?.HEARST)
+                color: t(member.campus).includes(campusValue?.HEARST)
                   ? 'var(--campus-green)'
-                  : member.campus.includes(campusValue?.KAPUSKASING)
+                  : t(member.campus).includes(campusValue?.KAPUSKASING)
                   ? 'var(--campus-blue)'
                   : 'var(--campus-yellow)',
               }"
             >
-              {{ stat.label }}
+              {{ t(stat.label) }}
             </div>
             <div
               class="stat-label"
               :style="{
-                color: member.campus.includes(campusValue?.HEARST)
+                color: t(member.campus).includes(campusValue?.HEARST)
                   ? 'var(--campus-green)'
-                  : member.campus.includes(campusValue?.KAPUSKASING)
+                  : t(member.campus).includes(campusValue?.KAPUSKASING)
                   ? 'var(--campus-blue)'
                   : 'var(--campus-yellow)',
               }"
@@ -136,17 +135,26 @@
     </TransitionGroup>
 
     <perso-div :padding-value="4" class="text-center">
-        <a-button size="large" class="outline-slide-team"><UserAddOutlined class="fix-icon"/> Rejoindre notre équipe </a-button>
+      <a-button size="large" class="outline-slide-team"
+        ><UserAddOutlined class="fix-icon" /> {{ t("body.members.card.member_add") }}
+      </a-button>
+
+      <a-button
+        @click="router.push('/formers')"
+        size="large"
+        class="outline-slide-team mx-3 mobile"
+        ><HistoryOutlined class="fix-icon" />
+        {{ t("body.members.card.old_members_view") }}
+      </a-button>
     </perso-div>
-
-    <!-- Voir si je met les trucs en haut des cards sans hover ca sera joli ou pas -->
-
   </div>
 </template>
 
 <script setup>
 import { filters, members, campusValue } from "~/core/constant";
-const { t } = useI18n();
+const { t, locale } = useI18n();
+
+const router = useRouter();
 
 const isVisible = ref(false);
 const target = ref(null);
@@ -162,14 +170,20 @@ import {
 } from "@ant-design/icons-vue";
 
 /* FILTRE */
-const activeFilter = ref("Tous les membres");
+const activeFilter = ref(t("body.filters.all"));
 
 /* FILTRAGE */
 const filteredMembers = computed(() => {
-  if (activeFilter.value === "Tous les membres") {
+  if (activeFilter.value === t("body.filters.all")) {
     return members.value;
   }
-  return members.value.filter((m) => m.campus === activeFilter.value);
+  return members.value.filter((m) => t(m.campus) === activeFilter.value);
+});
+
+watch(locale, (newValue, oldValue) => {
+  if (newValue) {
+    activeFilter.value = t("body.filters.all");
+  }
 });
 
 /* ICONS */
@@ -511,6 +525,44 @@ onBeforeUnmount(() => {
     font-weight: 600;
     font-family: var(--font-display) !important;
   }
+
+  .team-name {
+    font-family: var(--font-display) !important;
+    font-size: 1.1rem !important;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+  }
+
+  .role {
+    font-family: var(--font-body) !important;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .campus-tag {
+    top: 1rem;
+    right: 1rem;
+    z-index: 3; /* 🔥 IMPORTANT */
+    border-radius: 20px;
+    gap: 0.5rem;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 600;
+    font-family: var(--font-display) !important;
+    padding: 4px 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -521,59 +573,63 @@ onBeforeUnmount(() => {
     margin-bottom: 0;
   }
 
-  .member-card-kap .member-card-hearst .member-card-timmins {
-    position: relative; /* OBLIGATOIRE pour ::before */
-  border-radius: 24px;
-  overflow: hidden;
-  transition: all 0.35s ease;
-  cursor: pointer;
-  height: 100%;
+  .mobile{
+    margin-top: 10px;
   }
 
-/* Barre bleue en haut */
-.member-card-kap::before {
+  .member-card-kap .member-card-hearst .member-card-timmins {
+    position: relative; /* OBLIGATOIRE pour ::before */
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  /* Barre bleue en haut */
+  .member-card-kap::before {
     content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%; /* visible par défaut */
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  z-index: 2;
-}
-.member-card-kap:focus {
-  box-shadow: 0 10px 10px rgba(37, 99, 235, 0.25) !important;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%; /* visible par défaut */
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    z-index: 2;
+  }
+  .member-card-kap:focus {
+    box-shadow: 0 10px 10px rgba(37, 99, 235, 0.25) !important;
+  }
 
-.member-card-hearst:focus {
-  box-shadow: 0 10px 10px rgba(92, 221, 146, 0.25) !important;
-}
+  .member-card-hearst:focus {
+    box-shadow: 0 10px 10px rgba(92, 221, 146, 0.25) !important;
+  }
 
-.member-card-timmins:hover {
-  box-shadow: 0 10px 10px rgba(221, 204, 92, 0.25) !important;
-}
+  .member-card-timmins:hover {
+    box-shadow: 0 10px 10px rgba(221, 204, 92, 0.25) !important;
+  }
 
-.member-card-hearst::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background: linear-gradient(90deg, #10b981, #34d399);
-  z-index: 2;
-}
+  .member-card-hearst::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #10b981, #34d399);
+    z-index: 2;
+  }
 
-.member-card-timmins::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background: linear-gradient(90deg, #f59e0b, #fbbf24);
-  z-index: 2;
-}
+  .member-card-timmins::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    z-index: 2;
+  }
 
   .campus-tag {
     top: 1rem;

@@ -64,7 +64,41 @@
         "title-three": "Événements & activités",
         "three": "Organisation d'événements sociaux, culturels et sportifs pour enrichir votre vie universitaire et créer des souvenirs inoubliables.",
         "title-four": "Défense des droits",
-        "four": "Protection de vos droits étudiants, accompagnement dans les démarches administratives et soutien en cas de difficultés."
+        "four": "Protection de vos droits étudiants, accompagnement dans les démarches administratives et soutien en cas de difficultés.",
+        "member_add": "Rejoindre notre équipe",
+        "old_members_view": "Anciens membres",
+        "position": {
+          "president": {
+            "poste": "Président de l'Association",
+            "description": "Étudiante en administration, Sophie est passionnée par l'engagement étudiant.",
+            "position_during": "En poste depuis :",
+            "school_years": "Niveau scolaire :"
+          },
+          "vice_president": {
+            "poste": "Vice-président",
+            "description": "Responsable des partenariats et des collaborations stratégiques.",
+            "position_during": "En poste depuis :",
+            "school_years": "Niveau scolaire :"
+          },
+          "secretaire": {
+            "poste": "Secrétaire Générale",
+            "description": "Organisée et méticuleuse, elle coordonne les activités.",
+            "position_during": "En poste depuis :",
+            "school_years": "Niveau scolaire :"
+          },
+          "tresorerie": {
+            "poste": "Trésorier",
+            "description": "Étudiant en informatique, il organise des événements technologiques.",
+            "position_during": "En poste depuis :",
+            "school_years": "Niveau scolaire :"
+          },
+          "communication": {
+            "poste": "Responsable général des communications",
+            "description": "Étudiant en informatique, il organise des événements technologiques.",
+            "position_during": "En poste depuis :",
+            "school_years": "Niveau scolaire :"
+          }
+        }
       }
     },
     "filters": {
@@ -72,6 +106,20 @@
       "kapuskasing": "Campus de Kapuskasing",
       "hearst": "Campus de Hearst",
       "timmins": "Campus de Timmins"
+    },
+    "projects": {
+      "title": "Projets & initiatives étudiantes",
+      "subtitle": "Des projets créés par les étudiants, pour les étudiants",
+      "in_progress": "En cours",
+      "finish": "Terminé",
+      "not_started": "À venir",
+      "plus_button": "Voir plus",
+      "project_add": "Proposer un projet"
+    },
+    "detail_formers":{
+      "title": "Anciens Membres du Comité",
+      "subtitle": "Découvrez les leaders étudiants qui ont façonné notre association au cours des 5 dernières années",
+      "comite": "Commité"
     }
   }
 }

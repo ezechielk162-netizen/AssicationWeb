@@ -2,7 +2,7 @@
   <div>
     <ClientOnly>
       <AppLoaderLoad v-if="loading" />
-      <NavbarDefault v-else />
+      <NavbarElection v-else />
     </ClientOnly>
   </div>
 </template>
@@ -10,11 +10,13 @@
 <script setup lang="ts">
 const loading = useState<boolean>("globalLoading", () => true);
 
-onMounted(() => {
+  onMounted(() => {
   // Delay pour le loader
   setTimeout(() => {
     loading.value = false;
   }, 500);
+
+
 });
 </script>
 

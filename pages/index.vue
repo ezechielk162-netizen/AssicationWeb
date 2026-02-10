@@ -1,5 +1,6 @@
 <template>
   <!-- Section du héro -->
+  <div>
   <HeroImageSection />
 
   <!-- Section de la présentation -->
@@ -45,6 +46,8 @@
     />
     <ProjectsArticle />
   </PersoDiv>
+</div>
 </template>
 
-<script lan="ts" setup></script>
+<script lan="ts" setup>
+</script>

@@ -36,6 +36,32 @@ export const menuItems = [
   },
 ];
 
+export const electionMenuItems = [
+  {
+    name: 'nav.home',
+    to: "/",
+    icon: HomeOutlined,
+    dropdown: null,
+  },
+  {
+    name: "nav.contact",
+    to: "#",
+    icon: PhoneOutlined,
+    dropdown: null,
+  },
+];
+
+// A traduire
+export const electionActionButtons = [
+  {
+    label: 'Se connecter',
+    icon: UsergroupAddOutlined,
+    type: 'primary',
+    showOnMobile: true,
+    redirectButton: "/elections/connexion",
+    isTablette: true
+  }
+];
 
 // A traduire
 export const actionButtons = [
